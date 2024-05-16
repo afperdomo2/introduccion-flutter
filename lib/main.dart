@@ -31,12 +31,27 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Página de inicio"),
-      ),
-      body: const Center(
-        child: Text("Hola Mundo"),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("My App"),
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+        ),
+        body: ListView(
+          children: [
+            Container(
+              color: Colors.green,
+              padding: const EdgeInsets.all(20.0),
+              child: Image.network("https://picsum.photos/300?image=9"),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20.0),
+              child: Image.network("https://picsum.photos/300?image=9"),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20.0),
+              child: Image.network("https://picsum.photos/300?image=9"),
+            ),
+          ],
+        ));
   }
 }
