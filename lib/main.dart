@@ -37,14 +37,13 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: [
             const Text("Hola 01"),
             const Text("Hola 02"),
             Container(
-              width: MediaQuery.of(context).size.width,
               child:
                   const Text("Hola - Container", textAlign: TextAlign.center),
             ),
