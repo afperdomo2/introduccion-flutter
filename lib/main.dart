@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 
 void main() {
@@ -36,21 +37,18 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
-        body: ListView(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: [
+            const Text("Hola 01"),
+            const Text("Hola 02"),
             Container(
-              color: Colors.green,
-              padding: const EdgeInsets.all(20.0),
-              child: Image.network("https://picsum.photos/300?image=9"),
+              width: MediaQuery.of(context).size.width,
+              child:
+                  const Text("Hola - Container", textAlign: TextAlign.center),
             ),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              child: Image.network("https://picsum.photos/300?image=9"),
-            ),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              child: Image.network("https://picsum.photos/300?image=9"),
-            ),
+            const Text("Hola 03"),
           ],
         ));
   }
