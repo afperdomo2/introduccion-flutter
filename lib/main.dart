@@ -1,4 +1,5 @@
-import "package:flutter/cupertino.dart";
+import "package:app_curso_flutter/pages/conditions.dart";
+import "package:app_curso_flutter/pages/login.dart";
 import "package:flutter/material.dart";
 
 void main() {
@@ -32,77 +33,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: loginContainer(),
-      ),
-    );
-  }
-}
-
-Widget loginContainer() {
-  return Container(
-    decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: NetworkImage(
-                "https://image.freepik.com/foto-gratis/fondo-abstracto-color-azul-oscuro_53876-87592.jpg"),
-            fit: BoxFit.cover)),
-    child: Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        titleLogin(),
-        userTextField(),
-        passwordTextField(),
-        loginButton()
-      ],
-    )),
-  );
-}
-
-Widget titleLogin() {
-  return const Text("Sing in",
-      style: TextStyle(
-          fontSize: 40, fontWeight: FontWeight.bold, color: Colors.cyan));
-}
-
-Widget userTextField() {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-    child: const TextField(
-      decoration: InputDecoration(
-          hintText: "User", fillColor: Colors.white, filled: true),
-    ),
-  );
-}
-
-Widget passwordTextField() {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-    child: const TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-          hintText: "Password", fillColor: Colors.white, filled: true),
-    ),
-  );
-}
-
-Widget loginButton() {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-    child: SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.cyan,
-            textStyle: const TextStyle(fontSize: 17),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+        appBar: AppBar(
+          title: const Text("Mi App"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Home"),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ConditionsPage()));
+                  },
+                  child: const Text("Go to terms and conditions"))
+            ],
           ),
-          child: const Text(
-            "Login",
-            style: TextStyle(color: Colors.white),
-          )),
-    ),
-  );
+        ));
+  }
 }
