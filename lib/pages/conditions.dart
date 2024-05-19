@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
 
 // Esta página se usa para mostrar los términos y condiciones de la app
 // y volver a la página anterior

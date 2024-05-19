@@ -1,3 +1,4 @@
+import "package:app_curso_flutter/pages/conditions.dart";
 import "package:flutter/material.dart";
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: "AlertDialogs",
+      title: "Mi App",
       home: HomePage(),
     );
   }
@@ -34,6 +35,21 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: const Text("Mi App"),
         ),
-        body: const Center(child: Text("hola")));
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Home"),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ConditionsPage()));
+                  },
+                  child: const Text("Go to terms and conditions"))
+            ],
+          ),
+        ));
   }
 }
