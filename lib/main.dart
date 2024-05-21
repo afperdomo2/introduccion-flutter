@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: "AlertDialogs",
+      title: "App",
       home: HomePage(),
     );
   }
@@ -28,33 +28,12 @@ class HomePage extends StatefulWidget {
 
 // State: Estado interno del StatefulWidget
 class _HomePageState extends State<HomePage> {
-  Company facebook = Company("Facebook", "Mark Zuckerberg", 1000000);
-  Company google = Company("Google", "Sundar Pichai", 2000000);
-  Company apple = Company("Apple", "Tim Cook", 3000000);
-
-  @override
-  // initState: Método que se ejecuta al iniciar el StatefulWidget
-  void initState() {
-    super.initState();
-    print(facebook.name);
-    print(facebook.ceo);
-    print(facebook.income);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Mi App"),
         ),
-        body: Center(child: Text(facebook.name)));
+        body: const Center(child: Text("Hola")));
   }
-}
-
-class Company {
-  String name;
-  String ceo;
-  int income;
-
-  Company(this.name, this.ceo, this.income);
 }
