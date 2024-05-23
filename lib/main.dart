@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  //Future<List<Gif>> gifsList;
+  late Future<List<Gif>> gifList;
 
   Future<List<Gif>> getGifs() async {
     String url =
@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    getGifs();
+    gifList = getGifs();
   }
 
   @override
@@ -49,12 +49,45 @@ class _MyAppState extends State<MyApp> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text('Api Giphys 22'),
         ),
-        body: const Center(
-          child: Text('Hello World'),
+        body: FutureBuilder(
+          future: gifList,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView(
+                children: buildGifList(snapshot.data as List<Gif>),
+              );
+            } else if (snapshot.hasError) {
+              return const Text("Error al cargar los gifs");
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          },
         ),
       ),
     );
   }
+
+  List<Widget> buildGifList(List<Gif> gifs) {
+    List<Widget> gifWidgets = [];
+    for (var gif in gifs) {
+      gifWidgets.add(Card(
+        child: Column(
+          children: [
+            Image.network(gif.url),
+            Padding(padding: const EdgeInsets.all(8), child: Text(gif.name)),
+          ],
+        ),
+      ));
+    }
+    return gifWidgets;
+  }
 }
+
+// Column(
+//           children: [
+//             Text(gif.name),
+//             Image.network(gif.url),
+//           ],
+//         ),
