@@ -10,7 +10,25 @@ class CounterScreen extends StatelessWidget {
         title: const Text('Counter App Bar'),
       ),
       body: const Center(
-        child: Text('Counter screen'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '10',
+              style: TextStyle(fontSize: 100, fontWeight: FontWeight.w100),
+            ),
+            Text(
+              'Clicks',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }
