@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        title: 'Material App 2',
+        title: 'Material App',
         debugShowCheckedModeBanner: false,
         home: CounterScreen());
   }
