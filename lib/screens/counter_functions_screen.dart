@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CounterFunctionsScreen extends StatefulWidget {
@@ -65,25 +67,47 @@ class _CounterFunctionsScreenState extends State<CounterFunctionsScreen> {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            FloatingActionButton(
+            FloatingControlButton(
+              icon: Icons.add,
               onPressed: () {
                 setState(() {
                   _clickCounter++;
                 });
               },
-              child: const Icon(Icons.add),
             ),
             const SizedBox(height: 10),
-            FloatingActionButton(
-              shape: const StadiumBorder(),
+            FloatingControlButton(
+              icon: Icons.remove,
               onPressed: () {
+                if (_clickCounter == 0) return;
                 setState(() {
                   _clickCounter--;
                 });
               },
-              child: const Icon(Icons.remove),
             )
           ],
         ));
+  }
+}
+
+class FloatingControlButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  const FloatingControlButton({
+    super.key,
+    required this.icon,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      // shape: const StadiumBorder(),
+      backgroundColor: Colors.cyan,
+      elevation: 5,
+      onPressed: onPressed,
+      child: Icon(icon, color: Colors.white),
+    );
   }
 }
